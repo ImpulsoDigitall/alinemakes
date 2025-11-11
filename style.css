@@ -1,0 +1,451 @@
+/* ======== CONFIGURAÇÕES GLOBAIS E VARIÁVEIS ======== */
+:root {
+    /* Paleta de cores moderna (tons de rosa, dourado e neutros) */
+    --primary-color: #D9AAB7;  /* Rosa queimado */
+    --secondary-color: #F2E8DC; /* Bege claro */
+    --accent-color: #E6C994;   /* Dourado/Amarelo */
+    --text-dark: #333;
+    --text-light: #fff;
+    --bg-dark: #2c2c2c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; text-align: center; margin-bottom: 40px; }
+h3 { font-size: 1.5rem; }
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Padding de conteúdo adaptável */
+.content-section, .content-section-dark {
+    padding: 60px 5%; /* Reduzido o padding vertical para mobile */
+}
+
+.content-section-dark {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: -30px;
+    margin-bottom: 40px;
+    color: #555;
+}
+
+/* Animações (Certifique-se de que isso está no seu CSS) */
+.content-section h2,
+.about-container,
+.module-card,
+.pricing-card,
+.testimonial-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ======== BOTÃO CTA (CALL TO ACTION) ======== */
+.cta-button {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.hero-cta {
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+}
+
+.hero-cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.nav-cta {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.nav-cta:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+
+/* ======== HEADER E NAVEGAÇÃO (Desktop Padrão) ======== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* ======== SEÇÃO HERO (APRESENTAÇÃO) ======== */
+.hero {
+    height: 90vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Mantenha o background do Hero */
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://via.placeholder.com/1500x800/D9AAB7/333?text=Imagem+de+Fundo+Bonita');
+    background-size: cover;
+    background-position: center;
+    color: var(--text-light);
+    padding: 0 5%;
+    margin-top: 70px;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* ======== SEÇÃO SOBRE ======== */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-image {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--primary-color);
+    flex-shrink: 0; /* Impede que a imagem encolha */
+}
+
+.about-text h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+/* ======== SEÇÃO MÓDULOS ======== */
+.modules-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.module-card {
+    background-color: #3a3a3a;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    flex-grow: 1;
+}
+
+.module-card h4 {
+    font-size: 1.4rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.module-card ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #555;
+}
+
+/* ======== SEÇÃO DE PREÇOS ======== */
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Alinha cartões pela altura */
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.pricing-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    padding: 35px;
+    width: 360px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+}
+
+.pricing-card.popular {
+    border: 2px solid var(--primary-color);
+    transform: scale(1.05);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.pricing-card h3 {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+}
+
+.pricing-card .description {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.price-tag {
+    margin-bottom: 25px;
+}
+
+.price-tag .currency {
+    font-size: 1.5rem;
+    vertical-align: top;
+    margin-right: 5px;
+}
+
+.price-tag .price {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.price-tag .period {
+    font-size: 0.9rem;
+    color: #777;
+    display: block;
+}
+
+.features-list {
+    text-align: left;
+    margin-bottom: 30px;
+    flex-grow: 1; /* Faz a lista de recursos ocupar o espaço restante */
+}
+
+.features-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.features-list li.disabled {
+    color: #aaa;
+    text-decoration: line-through;
+}
+
+.price-cta {
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    width: 100%;
+    margin-top: auto; /* Garante que o botão fique no final */
+}
+
+.price-cta-popular {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    width: 100%;
+    margin-top: auto;
+}
+
+.price-cta:hover, .price-cta-popular:hover {
+    transform: scale(1.03);
+}
+
+.price-cta-popular:hover {
+    background-color: #c993a3;
+}
+
+/* ======== SEÇÃO DEPOIMENTOS ======== */
+.testimonials-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.testimonial-card {
+    background-color: #3a3a3a;
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 350px;
+    flex-grow: 1;
+    font-style: italic;
+}
+
+.testimonial-card p {
+    margin-bottom: 15px;
+}
+
+.testimonial-card span {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+/* ======== RODAPÉ ======== */
+footer {
+    text-align: center;
+    padding: 40px 5%;
+    background-color: var(--bg-dark);
+    color: #aaa;
+}
+
+/* ======================================= */
+/* ====== MEDIA QUERIES (MOBILE FIX) ===== */
+/* ======================================= */
+
+@media (max-width: 768px) {
+    /* Ajustes globais para telas menores */
+    h1 {
+        font-size: 2.2rem;
+    }
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    
+    /* FIX: Header/Navbar */
+    .navbar {
+        padding: 15px 5%;
+    }
+    .nav-links {
+        display: none; /* Mantemos o menu simples para mobile */
+    }
+    .nav-cta {
+        display: none; /* Removemos o botão CTA duplo do header */
+    }
+
+    /* FIX: Seção HERO */
+    .hero {
+        height: auto;
+        padding-top: 100px;
+        padding-bottom: 60px;
+        min-height: 400px;
+    }
+
+    /* FIX: Seção SOBRE */
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    .about-image {
+        width: 250px; /* Foto menor no mobile */
+        height: 250px;
+    }
+    .about-text {
+        padding: 0 10px;
+    }
+
+    /* FIX: Seção MÓDULOS/PREÇOS/DEPOIMENTOS */
+    /* Garante que os containers se empilhem */
+    .modules-container, 
+    .pricing-container, 
+    .testimonials-container {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .module-card, 
+    .pricing-card, 
+    .testimonial-card {
+        width: 100%; /* Ocupa a largura total da tela */
+        max-width: 400px; /* Limite máximo para não esticar demais em tablets */
+        margin: 0 auto; /* Centraliza */
+    }
+
+    /* Remove o zoom do cartão popular no mobile, que pode atrapalhar */
+    .pricing-card.popular {
+        transform: scale(1); 
+    }
+}
